@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:black;
+            height: 100vh;
+        }
+        .container{
+            position: relative;
+            font-size: 10px;
+            width: 60em;
+            height: 60em;
+            overflow: hidden;
+        }
+
+        .sun{
+            position: absolute;
+            width: 10em;
+            height: 10em;
+            background-color: yellow;
+            box-shadow: 0 0 30px white;
+            top: 15em;
+            left: 15em;
+            border-radius: 50%;
+        }
+
+        .moon, .earth{
+            position: absolute;
+            border-width:  .1em  .1em 0 0;
+            border-style: solid;
+            /* border-color: aquamarine; */
+            border-color:white transparent transparent transparent ;
+            border-radius: 50%;
+        }
+
+        .earth{
+            width: 30em;
+            height: 30em;
+            animation: orbit 36.5s linear infinite;
+            top: 10em;
+            left: 10em;
+        }
+
+        .moon{
+            width: 8em;
+            height: 8em;
+            animation: orbit 2.4s linear infinite;
+            top: 1.5em;
+            right: -1.5em;
+        }
+
+
+        .moon::before, .earth::before{
+            content:'';
+            position:absolute;
+            border-radius: 50%;
+        }
+        
+        .earth::before{
+            width: 5em;
+            height: 5em;
+            background-color: aqua;
+            top: 3em;
+            right: 0;
+        } 
+        .moon::before{
+            width: 1.2em;
+            height: 1.2em;
+            background-color: silver;
+            top: .7em;
+            left: 6.4em;
+        } 
+
+
+        @keyframes orbit {
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sun"></div>
+        <div class="earth">
+            <div class="moon"></div>
+        </div>
+    </div>
+</body>
+</html>
